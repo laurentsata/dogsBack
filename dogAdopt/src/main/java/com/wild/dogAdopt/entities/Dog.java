@@ -17,12 +17,11 @@ public class Dog {
     private String sex;
     private String color;
     private String race;
-    private Boolean is_adopted;
+    private Boolean isAdopted;
     private Integer age;
 
     public Dog() {
     }
-
 
 
     //Getters car définit en private
@@ -53,8 +52,8 @@ public class Dog {
         return age;
     }
 
-    public Boolean getIs_adopted() {
-        return is_adopted;
+    public Boolean getIsAdopted() {
+        return isAdopted;
     }
 
     //Setters car définit en private
@@ -82,8 +81,8 @@ public class Dog {
         this.race = race;
     }
 
-    public void setIs_adopted(Boolean is_adopted) {
-        this.is_adopted = is_adopted;
+    public void setIsAdopted(Boolean isAdopted) {
+        this.isAdopted = isAdopted;
     }
     public void setAge(Integer age) {
         this.age = age;

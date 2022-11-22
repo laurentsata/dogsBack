@@ -20,8 +20,8 @@ public class DogController {
     
 //On va chercher avec un "GET" tous les chiens avec "findAllDogsByIsAdopted" qu'on a crée dans le repository
     @GetMapping
-    public List<Dog> findAllDogsByIsAdopted(Boolean is_adopted) {
-        return this.dogRepository.findAllDogsByIsAdopted(is_adopted);
+    public List<Dog> findAllDogsByIsAdopted(Boolean isAdopted) {
+        return this.dogRepository.findAllDogsByIsAdopted(isAdopted);
     }
     
 }
