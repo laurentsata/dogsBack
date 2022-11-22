@@ -13,6 +13,7 @@ public class Dog {
 //Integer = wrapper pour avoir ttes les valeurs. Car "int" ne peut pas être nul.
     private Integer id;
     private String name;
+    private String imgUrl;
     private String sex;
     private String color;
     private String race;
@@ -22,6 +23,8 @@ public class Dog {
     public Dog() {
     }
 
+
+
     //Getters car définit en private
     public Integer getId() {
         return id;
@@ -29,6 +32,10 @@ public class Dog {
 
     public String getName() {
         return name;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
     }
 
     public String getSex() {
@@ -58,7 +65,11 @@ public class Dog {
     public void setName(String name) {
         this.name = name;
     }
-
+    
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+   
     public void setSex(String sex) {
         this.sex = sex;
     }
@@ -77,6 +88,5 @@ public class Dog {
     public void setAge(Integer age) {
         this.age = age;
     }
-   
 }
 
