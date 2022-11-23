@@ -7,6 +7,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Dog {
+
+   
     //Dans la table, on met l'id :
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
