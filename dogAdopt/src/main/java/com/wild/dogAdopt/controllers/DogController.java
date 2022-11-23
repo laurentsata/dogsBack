@@ -3,6 +3,7 @@ package com.wild.dogAdopt.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import com.wild.dogAdopt.entities.Dog;
 import com.wild.dogAdopt.repositories.DogRepository;
 
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/dogs") //vu que toutes les routes vont commencer par /dog =>on ajoute cette info
 public class DogController {
