@@ -59,6 +59,7 @@ public class DogController {
         dogToUpdate.setSex(newDog.getSex());
         dogToUpdate.setColor(newDog.getColor());
         dogToUpdate.setRace(newDog.getRace());
+        dogToUpdate.setIsAdopted(newDog.getIsAdopted());
         return dogRepository.save(dogToUpdate);
     }
 
