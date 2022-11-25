@@ -16,42 +16,41 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wild.dogAdopt.entities.Dog;
 import com.wild.dogAdopt.repositories.DogRepository;
 
-
 //Ajout car on fait avec 2 vsCode
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/dogs") //vu que toutes les routes vont commencer par /dog =>on ajoute cette info
+@RequestMapping("/dogs") // vu que toutes les routes vont commencer par /dog =>on ajoute cette info
 public class DogController {
-//on s'injecte le repository ici
+    // on s'injecte le repository ici
     @Autowired
     private DogRepository dogRepository;
-    
 
-    //@GetMapping
-    //public List<Dog> findAllDogs() {
-    //    return this.dogRepository.findAll();
-    //}
-//On va chercher avec un "GET" tous les chiens avec "findAllDogsByIsAdopted" qu'on a crée dans le repository
+    // @GetMapping
+    // public List<Dog> findAllDogs() {
+    // return this.dogRepository.findAll();
+    // }
+    // On va chercher avec un "GET" tous les chiens avec "findAllDogsByIsAdopted"
+    // qu'on a crée dans le repository
     @GetMapping
     public List<Dog> findAllDogsByIsAdopted(Boolean isAdopted) {
-        if (isAdopted != null){
+        if (isAdopted != null) {
             return this.dogRepository.findAllDogsByIsAdopted(isAdopted);
         }
         return this.dogRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Dog show(@PathVariable int id){
+    public Dog show(@PathVariable int id) {
         return this.dogRepository.findById(id).get();
     }
-    
+
     @PostMapping
-    public Dog create(@RequestBody Dog newDog){
+    public Dog create(@RequestBody Dog newDog) {
         return this.dogRepository.save(newDog);
     }
-    
+
     @PutMapping("/{id}")
-    public Dog update(@PathVariable int id, @RequestBody Dog newDog){
+    public Dog update(@PathVariable int id, @RequestBody Dog newDog) {
         // getting blog
         Dog dogToUpdate = this.dogRepository.findById(id).get();
         dogToUpdate.setName(newDog.getName());
@@ -64,9 +63,16 @@ public class DogController {
     }
 
     @DeleteMapping("/{id}")
-    public boolean delete(@PathVariable int id){
+    public boolean delete(@PathVariable int id) {
         dogRepository.deleteById(id);
         return true;
     }
-}
 
+    //Permet de passer un chien à adopter à un chien adopté
+    @PostMapping("/{id}/adopt")
+    public Dog adopt(@PathVariable int id) {
+        Dog dog = dogRepository.findById(id).get();
+        dog.setIsAdopted(true);
+        return dogRepository.save(dog);
+    }
+}
